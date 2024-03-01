@@ -4,10 +4,12 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // The `/api/products` endpoint
 
 // get all products
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   // find all categories
   try {
-    const productData = Product.findAll();
+    const productData = Product.findAll({
+      include: [{model: Category}, { model: Tag}]
+    });
     res.status(200).json(productData)
   }catch(error) {
     res.status(500).json('oops, something went wrong!!')
@@ -16,10 +18,12 @@ router.get('/', (req, res) => {
 });
 
 // get one product
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   try {
-    const productData = Product.findByPk(req.params.id);
+    const productData = Product.findByPk(req.params.id, {
+      include: [{ model: Category}, { model: Tag}]
+    });
   // be sure to include its associated Products
   res.status(200).json(productData)
 }catch(error) {
@@ -104,7 +108,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
   try {
     const productData = Product.delete(req.params.id);
