@@ -5,14 +5,26 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // get all products
 router.get('/', (req, res) => {
-  // find all products
-  // be sure to include its associated Category and Tag data
+  // find all categories
+  try {
+    const productData = Product.findAll();
+    res.status(200).json(productData)
+  }catch(error) {
+    res.status(500).json('oops, something went wrong!!')
+  }
+  // be sure to include its associated Products
 });
 
 // get one product
 router.get('/:id', (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+  // find one category by its `id` value
+  try {
+    const productData = Product.findByPk(req.params.id);
+  // be sure to include its associated Products
+  res.status(200).json(productData)
+}catch(error) {
+  res.status(500).json('oops, something went wrong!!')
+}
 });
 
 // create new product
@@ -93,7 +105,13 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  // delete one product by its `id` value
+  // delete a category by its `id` value
+  try {
+    const productData = Product.delete(req.params.id);
+  res.status(200).json(productData)
+}catch(error) {
+  res.status(500).json('oops, something went wrong!!')
+}
 });
 
 module.exports = router;
