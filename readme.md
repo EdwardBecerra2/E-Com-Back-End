@@ -6,12 +6,12 @@
   - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
-  - [Testing](#testing)
+  - [Video](#video)
   - [Questions](#questions)
 
 
   ## Description
-
+This is a back-end database that allowss updating, add, and viewing for a in therory front-end e-com website.
   
   ### Licensing 
   MIT [![Generic badge](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/.)
@@ -28,8 +28,8 @@
   5. `node server.js`
 
 
-  ## Testing
-  N/A
+  ## Video
+  https://www.redcoolmedia.net/videoonlineconverter/videos/1711741970_Screen%20Recording%202024-03-29%20at%2010.52.06%E2%80%AFAM.mp4
 
   ## Questions
   Reach out to the repo owner, [EdwardBecerra2](https://github.com/EdwardBecerra2) at edwardbecera1207@gmail.com.
